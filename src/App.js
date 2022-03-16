@@ -1,15 +1,8 @@
-import './App.css';
+import "rsuite/dist/styles/rsuite-default.css";
+import NavBar from "./components/nav-bar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Hey baby!! Love you!!
-        </p>
-      </header>
-    </div>
-  );
+  return <NavBar></NavBar>;
 }
 
 export default App;
