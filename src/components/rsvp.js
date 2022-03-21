@@ -71,12 +71,14 @@ class RSVP extends React.Component {
                 </RadioGroup>
               </FormGroup>
             ) : null}
-            <FormGroup>
-              <ButtonToolbar>
-                <Button appearance="ghost">RSVP</Button>
-                <Button appearance="ghost">Add Additional Guest</Button>
-              </ButtonToolbar>
-            </FormGroup>
+            {formValue.rsvp === "accepted" ? (
+              <FormGroup>
+                <ButtonToolbar>
+                  <Button appearance="ghost">RSVP</Button>
+                  <Button appearance="ghost">Add Additional Guest</Button>
+                </ButtonToolbar>
+              </FormGroup>
+            ) : null}
           </Form>
         </div>
       </div>
