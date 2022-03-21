@@ -1,18 +1,19 @@
-import { Nav } from "rsuite";
+import { Navbar, Nav } from "rsuite";
+import { goToAnchor, configureAnchors } from "react-scrollable-anchor";
 
-//sticky to top of page
-const NavBar = () => {
+const NavigationBar = () => {
+  configureAnchors({ offset: -50, scrollDuration: 1000 });
   return (
-    <Nav justified>
-      <Nav.Item href="#Home" active>
-        Home
-      </Nav.Item>
-      <Nav.Item>Our Story</Nav.Item>
-      <Nav.Item>Info</Nav.Item>
-      <Nav.Item>RSVP</Nav.Item>
-      <Nav.Item href="#Contact">Contact</Nav.Item>
-    </Nav>
+    <Navbar style={{ background: "black", opacity: ".4" }}>
+      <Nav justified style={{ width: "100%" }}>
+        <Nav.Item onSelect={() => goToAnchor("Home")}>Home</Nav.Item>
+        <Nav.Item onSelect={() => goToAnchor("OurStory")}>Our Story</Nav.Item>
+        <Nav.Item onSelect={() => goToAnchor("Info")}>Info</Nav.Item>
+        <Nav.Item onSelect={() => goToAnchor("RSVP")}>RSVP</Nav.Item>
+        <Nav.Item onSelect={() => goToAnchor("Contact")}>Contact</Nav.Item>
+      </Nav>
+    </Navbar>
   );
 };
 
-export default NavBar;
+export default NavigationBar;

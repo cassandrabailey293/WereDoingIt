@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.navbar ul {
+/* .navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -27,8 +27,58 @@ code {
   display: block;
   padding: 8px;
   background-color: #dddddd;
+} */
+
+/* .active {
+  color: #ffffff;
+} */
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
 }
 
-.active {
-  color: #ffffff;
+.home-page {
+  background: url("./img/florida-crossover.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.info-page {
+  background: url("./img/mountains.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.home-text-2 {
+  text-align: center;
+  padding-top: 1vh;
+}
+
+.home-text-1 {
+  text-align: center;
+  padding-top: 40vh;
+}
+
+.home-text-location {
+  text-align: center;
+  padding-bottom: 43vh;
+}
+
+.rsvp-header {
+  text-align: center;
+}
+
+.rsvp-body {
+  text-align: center;
+  width: 33vw;
+  margin: auto;
+}
+
+.rsvp-form {
+  text-align: left;
 }
