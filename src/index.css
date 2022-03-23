@@ -12,30 +12,10 @@ code {
     monospace;
 }
 
-/* .navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.navbar li {
-  float: left;
-}
-
-.navbar li a {
-  display: block;
-  padding: 8px;
-  background-color: #dddddd;
-} */
-
-/* .active {
-  color: #ffffff;
-} */
-
-.sticky-nav {
-  position: sticky;
-  top: 0;
+@font-face {
+  font-family: "Magnaline";
+  src: local("Magnaline"), url("./fonts/Magnaline.ttf") format("truetype");
+  font-weight: normal;
 }
 
 .home-page {
@@ -57,20 +37,25 @@ code {
 .home-text-2 {
   text-align: center;
   padding-top: 1vh;
+  font-family: Magnaline;
+  /* color: black; */
 }
 
 .home-text-1 {
   text-align: center;
   padding-top: 40vh;
+  font-family: fabrizio a sc;
 }
 
 .home-text-location {
   text-align: center;
   padding-bottom: 43vh;
+  font-family: fabrizio a sc;
 }
 
 .rsvp-header {
   text-align: center;
+  font-family: Magnaline;
 }
 
 .rsvp-body {
@@ -81,4 +66,28 @@ code {
 
 .rsvp-form {
   text-align: left;
+}
+
+.guest-list {
+  margin-bottom: 24px;
+}
+
+.delete-icon {
+  float: right;
+  cursor: pointer;
+}
+
+.info-header {
+  text-align: center;
+  font-family: Magnaline;
+}
+
+.contact-header {
+  text-align: center;
+  font-family: Magnaline;
+}
+
+.our-story-header {
+  text-align: center;
+  font-family: Magnaline;
 }

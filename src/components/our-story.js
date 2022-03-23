@@ -4,7 +4,7 @@ function OurStory() {
   return (
     <div>
       <ScrollableAnchor id={"OurStory"}>
-        <h1>Our Story</h1>
+        <h1 className="our-story-header">Our Story</h1>
       </ScrollableAnchor>
     </div>
   );
