@@ -24,10 +24,12 @@ code {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 100vh;
 }
 
 .info-page {
-  background: url("./img/mountains.jpeg") no-repeat center center fixed;
+  background: url("./img/villa-parker.jpeg") no-repeat center center;
+  height: 70vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -36,21 +38,27 @@ code {
 
 .home-text-2 {
   text-align: center;
-  padding-top: 1vh;
+  /* padding-top: 1vh; */
   font-family: Magnaline;
   /* color: black; */
+  top: 50%;
+  position: relative;
 }
 
 .home-text-1 {
   text-align: center;
-  padding-top: 40vh;
+  /* padding-top: 40vh; */
   font-family: fabrizio a sc;
+  top: 48%;
+  position: relative;
 }
 
 .home-text-location {
   text-align: center;
-  padding-bottom: 43vh;
+  /* padding-bottom: 43vh; */
   font-family: fabrizio a sc;
+  top: 55%;
+  position: relative;
 }
 
 .rsvp-header {
@@ -90,4 +98,10 @@ code {
 .our-story-header {
   text-align: center;
   font-family: Magnaline;
+}
+
+.test {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20;
 }

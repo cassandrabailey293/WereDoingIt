@@ -9,8 +9,8 @@ const NavigationBar = () => {
         <Nav.Item onSelect={() => goToAnchor("Home")}>Home</Nav.Item>
         <Nav.Item onSelect={() => goToAnchor("OurStory")}>Our Story</Nav.Item>
         <Nav.Item onSelect={() => goToAnchor("Info")}>Info</Nav.Item>
+        <Nav.Item onSelect={() => goToAnchor("Registry")}>Registry</Nav.Item>
         <Nav.Item onSelect={() => goToAnchor("RSVP")}>RSVP</Nav.Item>
-        <Nav.Item onSelect={() => goToAnchor("Contact")}>Contact</Nav.Item>
       </Nav>
     </Navbar>
   );
