@@ -14,7 +14,10 @@ code {
 
 @font-face {
   font-family: "Magnaline";
-  src: local("Magnaline"), url("/src/fonts/Magnaline.ttf") format("truetype");
+  /* src: local("Magnaline"), url("/src/fonts/Magnaline.ttf") format("truetype"); */
+  src: url("/src/fonts/Magnaline.woff2") format("woff2"),
+    url("/src/fonts/Magnaline.woff") format("woff"),
+    url("/src/fonts/Magnaline.ttf") format("truetype");
   font-weight: normal;
 }
 
