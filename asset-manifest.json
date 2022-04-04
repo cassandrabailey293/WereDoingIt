@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.8838c217.chunk.css",
+    "main.css": "/static/css/main.51006e72.chunk.css",
     "main.js": "/static/js/main.56bf1ce8.chunk.js",
     "main.js.map": "/static/js/main.56bf1ce8.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e0e20e33.js",
@@ -12,7 +12,7 @@
     "static/js/3.f280c633.chunk.js.map": "/static/js/3.f280c633.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.7785af68.chunk.css.map": "/static/css/2.7785af68.chunk.css.map",
-    "static/css/main.8838c217.chunk.css.map": "/static/css/main.8838c217.chunk.css.map",
+    "static/css/main.51006e72.chunk.css.map": "/static/css/main.51006e72.chunk.css.map",
     "static/js/2.25133e2d.chunk.js.LICENSE.txt": "/static/js/2.25133e2d.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/villa-parker.1af77b03.jpeg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.e0e20e33.js",
     "static/css/2.7785af68.chunk.css",
     "static/js/2.25133e2d.chunk.js",
-    "static/css/main.8838c217.chunk.css",
+    "static/css/main.51006e72.chunk.css",
     "static/js/main.56bf1ce8.chunk.js"
   ]
 }
