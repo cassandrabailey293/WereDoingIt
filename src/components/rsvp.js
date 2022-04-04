@@ -65,16 +65,18 @@ class RSVP extends React.Component {
   open = () => {
     this.setState({ show: true });
   };
-  submit = () => {
-        addDoc(collection(db, "users"), {
-            first: "Ada",
-            last: "Lovelace",
-            born: 1815
-        }).then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-        }).catch((e) => {
-            console.error("Error adding document: ", e);
+    submit = () => {
+        let flatGuestList = new Array();
+        flatGuestList.push(this.state.mainGuest)
+        this.state.additionalGuestList.forEach((guest) => {
+            guest.email = this.state.mainGuest.email
+            guest.rsvp = this.state.mainGuest.rsvp
+            flatGuestList.push(guest)
         })
+        flatGuestList.forEach((e) => {
+            addDoc(collection(db, "guestListFlat"), e)
+        })
+        addDoc(collection(db, "guestListGrouped"), this.state)
     console.log(this.state);
   };
   render() {
