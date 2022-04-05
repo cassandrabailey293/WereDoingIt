@@ -13,12 +13,11 @@ code {
 }
 
 @font-face {
-  font-family: "Magnaline";
-  /* src: local("Magnaline"), url("/src/fonts/Magnaline.ttf") format("truetype"); */
-  src: url("/src/fonts/Magnaline.woff2") format("woff2"),
-    url("/src/fonts/Magnaline.woff") format("woff"),
-    url("/src/fonts/Magnaline.ttf") format("truetype");
-  font-weight: normal;
+    font-family: "Arcadia";
+    /* src: local("Arcadia"), url("/src/fonts/Arcadia.ttf") format("truetype"); */
+    src: url("./fonts/font.woff2") format("woff2"),
+        url("./fonts/font.woff") format("woff");
+    font-weight: normal;
 }
 
 .home-page {
@@ -42,7 +41,7 @@ code {
 .home-text-2 {
   text-align: center;
   /* padding-top: 1vh; */
-  font-family: Magnaline;
+  font-family: Arcadia;
   /* color: black; */
   top: 50%;
   position: relative;
@@ -66,7 +65,7 @@ code {
 
 .rsvp-header {
   text-align: center;
-  font-family: Magnaline;
+  font-family: Arcadia;
 }
 
 .rsvp-body {
@@ -90,21 +89,26 @@ code {
 
 .info-header {
   text-align: center;
-  font-family: Magnaline;
+  font-family: Arcadia;
 }
 
 .contact-header {
   text-align: center;
-  font-family: Magnaline;
+  font-family: Arcadia;
 }
 
 .our-story-header {
   text-align: center;
-  font-family: Magnaline;
+  font-family: Arcadia;
 }
 
 .test {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20;
+}
+
+.our-story-details-wrapper {
+    display: flex;
+    flex-direction: row;
 }

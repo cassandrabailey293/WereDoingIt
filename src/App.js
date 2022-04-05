@@ -5,7 +5,8 @@ import Info from "./components/info";
 import RSVP from "./components/rsvp";
 
 import "rsuite/dist/styles/rsuite-default.css";
-import "./fonts/Magnaline.ttf";
+import "./fonts/font.woff";
+import "./fonts/font.woff2";
 
 function App() {
   return (

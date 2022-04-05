@@ -1,4 +1,5 @@
 import ScrollableAnchor from "react-scrollable-anchor";
+import { v4 as uuidv4 } from 'uuid';
 import {
   Form,
   ButtonToolbar,
@@ -66,17 +67,17 @@ class RSVP extends React.Component {
     this.setState({ show: true });
   };
     submit = () => {
-        let flatGuestList = new Array();
-        flatGuestList.push(this.state.mainGuest)
-        this.state.additionalGuestList.forEach((guest) => {
+        let flatGuestList = this.state.additionalGuestList.map((guest) => {
             guest.email = this.state.mainGuest.email
             guest.rsvp = this.state.mainGuest.rsvp
-            flatGuestList.push(guest)
-        })
+            return guest
+        });
+        flatGuestList.push(this.state.mainGuest)
+        const groupID = uuidv4();
         flatGuestList.forEach((e) => {
-            addDoc(collection(db, "guestListFlat"), e)
+            e.groupID = groupID
+            addDoc(collection(db, "guestList"), e)
         })
-        addDoc(collection(db, "guestListGrouped"), this.state)
     console.log(this.state);
   };
   render() {
