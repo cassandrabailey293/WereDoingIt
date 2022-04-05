@@ -1,5 +1,5 @@
 import ScrollableAnchor from "react-scrollable-anchor";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import {
   Form,
   ButtonToolbar,
@@ -19,19 +19,20 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore";
+import styled from "styled-components";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBy0hcB_NxD7vCDFslxDDq_19b8wNEsxCQ",
-    authDomain: "wedding-site-7d128.firebaseapp.com",
-    projectId: "wedding-site-7d128",
-    storageBucket: "wedding-site-7d128.appspot.com",
-    messagingSenderId: "446321917636",
-    appId: "1:446321917636:web:d01f09b1f711365ff91391",
-    measurementId: "G-KFXW5NV2HK"
+  apiKey: "AIzaSyBy0hcB_NxD7vCDFslxDDq_19b8wNEsxCQ",
+  authDomain: "wedding-site-7d128.firebaseapp.com",
+  projectId: "wedding-site-7d128",
+  storageBucket: "wedding-site-7d128.appspot.com",
+  messagingSenderId: "446321917636",
+  appId: "1:446321917636:web:d01f09b1f711365ff91391",
+  measurementId: "G-KFXW5NV2HK",
 };
 
 // Initialize Firebase
@@ -42,6 +43,13 @@ var db = getFirestore(app);
 
 const BEEF = "Beef";
 const VEG = "Vegetarian";
+
+const Body = styled.div`
+  text-align: center;
+  width: 33vw;
+  margin: auto;
+`;
+
 class RSVP extends React.Component {
   constructor(props) {
     super(props);
@@ -66,18 +74,18 @@ class RSVP extends React.Component {
   open = () => {
     this.setState({ show: true });
   };
-    submit = () => {
-        let flatGuestList = this.state.additionalGuestList.map((guest) => {
-            guest.email = this.state.mainGuest.email
-            guest.rsvp = this.state.mainGuest.rsvp
-            return guest
-        });
-        flatGuestList.push(this.state.mainGuest)
-        const groupID = uuidv4();
-        flatGuestList.forEach((e) => {
-            e.groupID = groupID
-            addDoc(collection(db, "guestList"), e)
-        })
+  submit = () => {
+    let flatGuestList = this.state.additionalGuestList.map((guest) => {
+      guest.email = this.state.mainGuest.email;
+      guest.rsvp = this.state.mainGuest.rsvp;
+      return guest;
+    });
+    flatGuestList.push(this.state.mainGuest);
+    const groupID = uuidv4();
+    flatGuestList.forEach((e) => {
+      e.groupID = groupID;
+      addDoc(collection(db, "guestList"), e);
+    });
     console.log(this.state);
   };
   render() {
@@ -86,12 +94,12 @@ class RSVP extends React.Component {
     return (
       <div>
         <ScrollableAnchor id={"RSVP"}>
-          <h1 className="rsvp-header">RSVP</h1>
+          <h1 className="section-header">RSVP</h1>
         </ScrollableAnchor>
-        <div className="rsvp-body">
+        <Body>
           <Form
             fluid
-            className="rsvp-form"
+            style={{ textAlign: "left" }}
             onChange={(mainGuest) => {
               this.setState({ mainGuest });
             }}
@@ -135,7 +143,7 @@ class RSVP extends React.Component {
               </FormGroup>
             ) : null}
             {additionalGuestList.length === 0 ? null : (
-              <div className="guest-list">
+              <div style={{ marginBottom: "24px" }}>
                 <List bordered hover>
                   {additionalGuestList.map((item, index) => (
                     <List.Item key={index} index={index}>
@@ -179,7 +187,7 @@ class RSVP extends React.Component {
               </FormGroup>
             ) : null}
           </Form>
-        </div>
+        </Body>
         <Modal show={show} onHide={this.close} size="xs">
           <Modal.Header>
             <Modal.Title>Additional Guest</Modal.Title>

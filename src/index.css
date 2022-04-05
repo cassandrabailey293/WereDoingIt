@@ -1,23 +1,9 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 @font-face {
-    font-family: "Arcadia";
-    /* src: local("Arcadia"), url("/src/fonts/Arcadia.ttf") format("truetype"); */
-    src: url("./fonts/font.woff2") format("woff2"),
-        url("./fonts/font.woff") format("woff");
-    font-weight: normal;
+  font-family: "Arcadia";
+  /* src: local("Arcadia"), url("/src/fonts/Arcadia.ttf") format("truetype"); */
+  src: url("./fonts/font.woff2") format("woff2"),
+    url("./fonts/font.woff") format("woff");
+  font-weight: normal;
 }
 
 .home-page {
@@ -38,48 +24,15 @@ code {
   background-size: cover;
 }
 
-.home-text-2 {
-  text-align: center;
-  /* padding-top: 1vh; */
-  font-family: Arcadia;
-  /* color: black; */
-  top: 50%;
-  position: relative;
+.rs-btn {
+  border-radius: 20px !important;
+  color: black !important;
+  border: 1px solid black !important;
 }
 
-.home-text-1 {
-  text-align: center;
-  /* padding-top: 40vh; */
-  font-family: fabrizio a sc;
-  top: 48%;
-  position: relative;
-}
-
-.home-text-location {
-  text-align: center;
-  /* padding-bottom: 43vh; */
-  font-family: fabrizio a sc;
-  top: 55%;
-  position: relative;
-}
-
-.rsvp-header {
+.section-header {
   text-align: center;
   font-family: Arcadia;
-}
-
-.rsvp-body {
-  text-align: center;
-  width: 33vw;
-  margin: auto;
-}
-
-.rsvp-form {
-  text-align: left;
-}
-
-.guest-list {
-  margin-bottom: 24px;
 }
 
 .delete-icon {
@@ -87,28 +40,14 @@ code {
   cursor: pointer;
 }
 
-.info-header {
+.info-detail {
   text-align: center;
-  font-family: Arcadia;
-}
-
-.contact-header {
-  text-align: center;
-  font-family: Arcadia;
-}
-
-.our-story-header {
-  text-align: center;
-  font-family: Arcadia;
-}
-
-.test {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20;
+  color: white;
 }
 
 .our-story-details-wrapper {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
+
+

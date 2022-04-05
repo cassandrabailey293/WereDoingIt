@@ -1,6 +1,27 @@
-import ScrollableAnchor from "react-scrollable-anchor";
 import NavigationBar from "./nav-bar";
 import { Affix } from "rsuite";
+import styled from "styled-components";
+
+const Marriage = styled.p`
+  text-align: center;
+  font-family: fabrizio a sc;
+  top: 48%;
+  position: relative;
+`;
+
+const Date = styled.p`
+  text-align: center;
+  font-family: fabrizio a sc;
+  top: 55%;
+  position: relative;
+`;
+
+const Main = styled.h1`
+  text-align: center;
+  font-family: Arcadia;
+  top: 50%;
+  position: relative;
+`;
 
 function Home() {
   return (
@@ -8,9 +29,9 @@ function Home() {
       <Affix>
         <NavigationBar />
       </Affix>
-      <p className="home-text-1">CELEBRATING THE MARRIAGE OF</p>
-      <h1 className="home-text-2">Cassandra and Andrew</h1>
-      <p className="home-text-location">09/03/2022 - PARKER, COLORADO</p>
+      <Marriage>CELEBRATING THE MARRIAGE OF</Marriage>
+      <Main>Cassandra and Andrew</Main>
+      <Date>09/03/2022 - PARKER, COLORADO</Date>
     </div>
   );
 }
