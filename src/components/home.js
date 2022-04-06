@@ -31,7 +31,7 @@ function Home() {
       </Affix>
       <Marriage>CELEBRATING THE MARRIAGE OF</Marriage>
       <Main>Cassandra and Andrew</Main>
-      <Date>09/03/2022 - PARKER, COLORADO</Date>
+      <Date>09.03.2022 - PARKER, COLORADO</Date>
     </div>
   );
 }

@@ -17,7 +17,7 @@
 
 .info-page {
   background: url("./img/villa-parker.jpeg") no-repeat center center;
-  height: 70vh;
+  /* height: 70vh; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -33,6 +33,7 @@
 .section-header {
   text-align: center;
   font-family: Arcadia;
+  padding-top: 50px;
 }
 
 .delete-icon {

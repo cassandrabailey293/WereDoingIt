@@ -41,7 +41,7 @@ function Info() {
       <div>
         <div className="info-detail">
           <h4 className="section-header">
-            Denver Marriott South at Park Meadows (recommended)
+            Denver Marriott South at Park Meadows | recommended
           </h4>
           <p>10345 Park Meadows Dr, Lone Tree, CO 80124</p>
           <p>(303) 925-0004</p>
