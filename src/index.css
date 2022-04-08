@@ -6,6 +6,26 @@
   font-weight: normal;
 }
 
+@font-face {
+    font-family: 'GrapeNuts-Regular';
+    src: url("./fonts/GrapeNuts-Regular.woff") format("woff"), url('./fonts/GrapeNuts-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Italic-VariableFont_wght';
+    src: url("./fonts/Montserrat-Italic-VariableFont_wght.woff") format("woff"), url('./fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-VariableFont_wght';
+    src: url("./fonts/Montserrat-VariableFont_wght.woff") format("woff"), url('./fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ShadowsIntoLight-Regular';
+    src: url("./fonts/ShadowsIntoLight-Regular.woff") format("woff"), url('./fonts/ShadowsIntoLight-Regular.ttf') format('truetype');
+}
+
 .home-page {
   background: url("./img/florida-crossover.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -51,8 +71,9 @@
 }
 
 .info-detail {
-  text-align: center;
-  color: white;
+    font-family: GrapeNuts-Regular;
+    text-align: center;
+    color: white;
 }
 
 .our-story-details-wrapper {
