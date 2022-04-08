@@ -24,6 +24,15 @@
   background-size: cover;
 }
 
+.rsvp-page {
+  background: url("./img/weddin.png") no-repeat center center, linear-gradient(white, #B2CAB2);
+  /* height: 70vh; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .rs-btn {
   border-radius: 20px !important;
   color: black !important;

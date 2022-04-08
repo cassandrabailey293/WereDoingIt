@@ -1,6 +1,7 @@
 import ScrollableAnchor from "react-scrollable-anchor";
 import { Button } from "rsuite";
 import styled from "styled-components";
+import Map from "./map";
 
 const Columns = styled.div`
   display: grid;
@@ -89,6 +90,7 @@ function Info() {
           </Button>
         </div>
       </div>
+      <Map />
     </div>
   );
 }

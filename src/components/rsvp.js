@@ -92,7 +92,7 @@ class RSVP extends React.Component {
     const { mainGuest, additionalGuestList, additionalGuest, show } =
       this.state;
     return (
-      <div>
+      <div className="rsvp-page">
         <ScrollableAnchor id={"RSVP"}>
           <h1 className="section-header">RSVP</h1>
         </ScrollableAnchor>
