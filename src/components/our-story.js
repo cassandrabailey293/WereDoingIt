@@ -1,4 +1,8 @@
 import ScrollableAnchor from "react-scrollable-anchor";
+import ourStoryCollage from '../img/ourstory_collage.png';
+import { useMediaQuery } from 'react-responsive';
+import styled from "styled-components";
+import React from 'react'
 
 function OurStory() {
   return (
@@ -20,18 +24,31 @@ function OurStory() {
           Piper (Rest in Peace Ezio, 2/4/22). They invite & welcome you in
           celebration of their union and their happily ever after (heart
           unicode){" "}
-        </div>
-        {/*put the pic here*/}
+              </div>
+              {OurStoryDetails}
+              <img src={ourStoryCollage} alt="we so cute"></img>
       </div>
     </div>
   );
 }
 
-//class OurStoryDetails extends React.Component {
-//    render() {
-//        return <h1>OUR STORY DEETS</h1>;
-// this is so that we can use responsive react for different screen sizes..potentially
-//    }
-//}
+class OurStoryDetails extends React.Component {
+    //isDesktopOrLaptop = useMediaQuery({
+    //    query: '(min-width: 1224px)'
+    //})
+    //isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+    //isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+    //isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+    //isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
+    render() {
+        //<h1>Device Test!</h1>
+        //{ isDesktopOrLaptop && <p>You are a desktop or laptop</p> }
+        //{ isBigScreen && <p>You  have a huge screen</p> }
+        //{ isTabletOrMobile && <p>You are a tablet or mobile phone</p> }
+        //<p>Your are in {isPortrait ? 'portrait' : 'landscape'} orientation</p>
+        //{ isRetina && <p>You are retina</p> }
+        return <img src={ourStoryCollage} alt="we so cute"></img> //why doesnt this work
+    }
+}
 
 export default OurStory;
