@@ -9,6 +9,11 @@ const Columns = styled.div`
   grid-gap: 20;
 `;
 
+const MapWrapper = styled.div`
+  padding-top: 50px;
+  padding-bottom: 50px;
+`;
+
 function Info() {
   return (
     <div className="info-page">
@@ -90,7 +95,10 @@ function Info() {
           </Button>
         </div>
       </div>
-      <Map />
+      <MapWrapper>
+        sfad
+        <Map />
+      </MapWrapper>
     </div>
   );
 }

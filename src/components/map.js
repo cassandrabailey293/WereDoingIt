@@ -1,27 +1,104 @@
 import React, { Component } from "react";
-import { Map, GoogleApiWrapper } from "google-maps-react";
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 
 const mapStyles = {
-  width: "100%",
-  height: "100%",
+  position: "relative",
+  width: "60vw",
+  height: "50vh",
+  margin: "auto",
 };
 
+const fields = ["name", "rating", "formatted_phone_number", "geometry"];
+const placeIds = [
+  "ChIJ75ssAQKSbIcReLM-YNsepYw",
+  "ChIJrz2ZXQ2FbIcRmuEC0KSgYtE",
+  "ChIJATR6UFCPbIcRybD5JBjeIkk",
+  "ChIJx1AW12WObIcRU94ebh8n8_g",
+];
 export class MapContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      places: [],
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+    };
+  }
+
+  onMarkerClick = (props, marker, e) => {
+    console.log(marker);
+    let place = this.state.places.find((p) => p.name === marker.title);
+    this.setState({
+      selectedPlace: place,
+      activeMarker: marker,
+      showingInfoWindow: true,
+    });
+  };
+
+  onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null,
+      });
+    }
+  };
+
+  componentDidMount() {
+    let service = new window.google.maps.places.PlacesService(
+      document.createElement("div")
+    );
+
+    let callback = (place, status) => {
+      console.log(place);
+      if (status == window.google.maps.places.PlacesServiceStatus.OK) {
+        this.setState({ places: this.state.places.concat([place]) });
+      }
+    };
+    placeIds.forEach((id) => {
+      var request = {
+        placeId: id,
+        fields,
+      };
+      service.getDetails(request, callback);
+    });
+  }
   render() {
     return (
       <Map
         google={this.props.google}
-        zoom={14}
-        style={mapStyles}
+        zoom={11}
+        containerStyle={mapStyles}
         initialCenter={{
-          lat: -1.2884,
-          lng: 36.8233,
+          lat: 39.5480555,
+          lng: -104.80568,
         }}
-      />
+        onClick={this.onMapClicked}
+      >
+        {this.state.places.map((place) => (
+          <Marker
+            title={place.name}
+            id={place.name}
+            position={place.geometry.location}
+            onClick={this.onMarkerClick}
+          />
+        ))}
+
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+        >
+          <div>
+            <h1>{this.state.selectedPlace.name}</h1>
+          </div>
+        </InfoWindow>
+      </Map>
     );
   }
 }
 
 export default GoogleApiWrapper({
   apiKey: "AIzaSyD1JhK9uiC_6AOYF_p1rLWbAdeDIpRM5w4",
+  libraries: ["places"],
 })(MapContainer);
