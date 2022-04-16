@@ -8,7 +8,7 @@ const mapStyles = {
   margin: "auto",
 };
 
-const fields = ["name", "rating", "formatted_phone_number", "geometry"];
+const fields = ["name", "rating", "formatted_phone_number", "geometry", "url"];
 const placeIds = [
   "ChIJ75ssAQKSbIcReLM-YNsepYw",
   "ChIJrz2ZXQ2FbIcRmuEC0KSgYtE",
@@ -90,7 +90,11 @@ export class MapContainer extends Component {
           visible={this.state.showingInfoWindow}
         >
           <div>
-            <h1>{this.state.selectedPlace.name}</h1>
+            <h6>{this.state.selectedPlace.name}</h6>
+            <p>{this.state.selectedPlace.formatted_phone_number}</p>
+            <a href={this.state.selectedPlace.url} target="_blank">
+              {this.state.selectedPlace.url}
+            </a>
           </div>
         </InfoWindow>
       </Map>

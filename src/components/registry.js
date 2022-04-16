@@ -6,14 +6,24 @@ const Body = styled.div`
   text-align: center;
 `;
 
+const Pdiddy = styled.div`
+  padding-top: 50px;
+`;
+
 function Registry() {
   return (
     <Body>
       <ScrollableAnchor id={"Registry"}>
         <h1 className="section-header">Registry</h1>
       </ScrollableAnchor>
-      <p>you can find our registry by clivking the zola link below</p>
-      <Button size="lg" appearance="ghost">
+      <Pdiddy>
+        you can find our registry by clicking the zola link below (reword?)
+      </Pdiddy>
+      <Button
+        style={{ marginTop: "20px", marginBottom: "50px" }}
+        size="lg"
+        appearance="ghost"
+      >
         ZOLA
       </Button>
     </Body>
