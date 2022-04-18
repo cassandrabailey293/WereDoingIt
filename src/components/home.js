@@ -25,8 +25,11 @@ const Main = styled.h1`
 `;
 
 function Home(props) {
+  const wrapperClass = props.isDesktopOrLaptop
+    ? "home-page-desktop"
+    : "home-page-mobile";
   return (
-    <div className="home-page">
+    <div className={wrapperClass}>
       <Affix>
         <NavigationBar />
       </Affix>

@@ -4,14 +4,21 @@ import styled from "styled-components";
 import Map from "./map";
 
 const Columns = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `;
 
 const MapWrapper = styled.div`
   padding-top: 50px;
   padding-bottom: 50px;
+`;
+
+const DeatilWrapper = styled.div`
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
 `;
 
 function Info() {
@@ -21,12 +28,12 @@ function Info() {
         <h1 className="info-detail section-header">Info</h1>
       </ScrollableAnchor>
       <Columns>
-        <div className="info-detail">
+        <DeatilWrapper className="info-detail" style={{ paddingRight: "20px" }}>
           <h1 className="section-header">When</h1>
           <p>September 3rd, 2022</p>
           <p>Please arrive by 4:30 pm</p>
-        </div>
-        <div className="info-detail">
+        </DeatilWrapper>
+        <DeatilWrapper className="info-detail" style={{ paddingRight: "20px" }}>
           <h1 className="section-header">Where</h1>
           <p>
             Ceremony will be held outdoors (weather permitting) in the
@@ -36,11 +43,11 @@ function Info() {
           <p>Villa Parker</p>
           <p>10750 S Pine Dr</p>
           <p>Parker, Colorado 80138</p>
-        </div>
-        <div className="info-detail">
+        </DeatilWrapper>
+        <DeatilWrapper className="info-detail">
           <h1 className="section-header">Wear</h1>
           <p>Cocktail attire and bring your dancing shoes</p>
-        </div>
+        </DeatilWrapper>
       </Columns>
 
       <h2 className="info-detail section-header">Accommodations</h2>

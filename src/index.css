@@ -26,15 +26,19 @@
     src: url("./fonts/ShadowsIntoLight-Regular.woff") format("woff"), url('./fonts/ShadowsIntoLight-Regular.ttf') format('truetype');
 }
 
-/* @import 'rsuite/dist/styles/rsuite-default.css'; */
-@base-color: #000000;
-
-.home-page {
+.home-page-desktop {
   background: url("./img/florida-crossover.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 100vh;
+}
+
+.home-page-mobile {
+  background: url("./img/florida-crossover.jpg");
+  background-size: cover;
+  background-position: center;
   height: 100vh;
 }
 
@@ -60,6 +64,13 @@
   border-radius: 20px !important;
   color: black !important;
   border: 1px solid black !important;
+}
+
+.rs-picker-has-value .rs-btn .rs-picker-toggle-value, .rs-picker-has-value .rs-picker-toggle .rs-picker-toggle-value {
+  color: #000000 !important; 
+}
+.rs-picker-select-menu-item.rs-picker-select-menu-item-active, .rs-picker-select-menu-item.rs-picker-select-menu-item-active:hover {
+  color: #000000 !important;
 }
 
 .section-header {
