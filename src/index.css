@@ -44,7 +44,6 @@
 
 .info-page {
   background: url("./img/villa-parker.jpeg") no-repeat center center;
-  /* height: 70vh; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -53,11 +52,14 @@
 
 .rsvp-page {
   background: url("./img/flower_transparent_side.png") no-repeat center center, linear-gradient(white, #B2CAB2);
-  /* height: 70vh; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.rsvp-page-mobile {
+  background-position: right;
 }
 
 .rs-btn {

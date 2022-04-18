@@ -34,16 +34,15 @@ const MobileNav = (
       ></Nav.Item>
       <Nav.Item
         onSelect={() => goToAnchor("RSVP")}
-        // icon={<Icon icon="calendar-check-o" />}
+        icon={<Icon icon="envelope-open" />}
       >
-        RSVP
+        {/* RSVP */}
       </Nav.Item>
     </Nav>
   </Navbar>
 );
 
 const NavigationBar = (props) => {
-  console.log(props);
   configureAnchors({ offset: -50, scrollDuration: 1000 });
   return props.isDesktopOrLaptop ? DesktopNav : MobileNav;
 };
