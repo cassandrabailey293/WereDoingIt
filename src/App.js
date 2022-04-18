@@ -6,6 +6,7 @@ import RSVP from "./components/rsvp";
 import SizeHelper from "./components/size-helper";
 
 import "rsuite/dist/styles/rsuite-default.css";
+import "./index.css";
 import "./fonts/font.woff";
 import "./fonts/font.woff2";
 

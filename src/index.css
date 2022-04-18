@@ -26,6 +26,9 @@
     src: url("./fonts/ShadowsIntoLight-Regular.woff") format("woff"), url('./fonts/ShadowsIntoLight-Regular.ttf') format('truetype');
 }
 
+/* @import 'rsuite/dist/styles/rsuite-default.css'; */
+@base-color: #000000;
+
 .home-page {
   background: url("./img/florida-crossover.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;

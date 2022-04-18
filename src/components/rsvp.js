@@ -12,6 +12,7 @@ import {
   Modal,
   List,
   Icon,
+  InputPicker,
 } from "rsuite";
 import React from "react";
 // Import the functions you need from the SDKs you need
@@ -44,9 +45,14 @@ var db = getFirestore(app);
 const BEEF = "Beef";
 const VEG = "Vegetarian";
 
-const Body = styled.div`
+const DesktopBody = styled.div`
   text-align: center;
   width: 33vw;
+  margin: auto;
+`;
+
+const MobileBody = styled.div`
+  text-align: center;
   margin: auto;
 `;
 
@@ -99,6 +105,7 @@ class RSVP extends React.Component {
   render() {
     const { mainGuest, additionalGuestList, additionalGuest, show } =
       this.state;
+    const Body = this.props.isDesktopOrLaptop ? DesktopBody : MobileBody;
     return (
       <Wrapper className="rsvp-page">
         <div>
@@ -123,34 +130,50 @@ class RSVP extends React.Component {
                 <FormControl name="email" type="email" />
               </FormGroup>
               <FormGroup controlId="rsvp">
-                <RadioGroup
+                <ControlLabel>Are you attending?</ControlLabel>
+                <InputPicker
+                  data={[
+                    {
+                      label: "Accepts with Joy",
+                      value: "accepted",
+                      role: "Master",
+                    },
+                    {
+                      label: "Will Celebrate from Afar",
+                      value: "declined",
+                      role: "Master",
+                    },
+                  ]}
+                  style={{ width: "100%" }}
                   onChange={(value) => {
                     mainGuest.rsvp = value;
                     this.setState({ mainGuest });
                   }}
-                  name="rsvp"
-                >
-                  <Radio value="accepted">Accepts with Joy</Radio>
-                  <Radio value="declined">Will Celebrate from Afar</Radio>
-                </RadioGroup>
+                />
               </FormGroup>
-              {mainGuest.rsvp === "accepted" ? (
-                <FormGroup controlId="mealChoice">
-                  <RadioGroup
-                    onChange={(value) => {
-                      mainGuest.mealChoice = value;
-                      this.setState({ mainGuest });
-                    }}
-                    name="mealChoice"
-                  >
-                    <p>Dinner Choice</p>
-                    <Radio value={VEG}>
-                      Stuffed Portobello Mushroom (vegetarian)
-                    </Radio>
-                    <Radio value={BEEF}>Beef Tenderlion</Radio>
-                  </RadioGroup>
-                </FormGroup>
-              ) : null}
+              <FormGroup controlId="mealChoice">
+                <ControlLabel>Dinner Choice</ControlLabel>
+                <InputPicker
+                  data={[
+                    {
+                      label: "Stuffed Portobello Mushroom (vegetarian)",
+                      value: VEG,
+                      role: "Master",
+                    },
+                    {
+                      label: "Beef Tenderlion",
+                      value: BEEF,
+                      role: "Master",
+                    },
+                  ]}
+                  style={{ width: "100%" }}
+                  onChange={(value) => {
+                    mainGuest.mealChoice = value;
+                    this.setState({ mainGuest });
+                  }}
+                />
+              </FormGroup>
+
               {additionalGuestList.length === 0 ? null : (
                 <div style={{ marginBottom: "24px" }}>
                   <List bordered hover>
@@ -175,30 +198,21 @@ class RSVP extends React.Component {
                   </List>
                 </div>
               )}
-              {mainGuest.rsvp === "accepted" ? (
-                <FormGroup>
-                  <ButtonToolbar>
-                    <Button onClick={this.submit} appearance="ghost">
-                      RSVP
-                    </Button>
-                    <Button onClick={this.open} appearance="ghost">
-                      Add Additional Guest
-                    </Button>
-                  </ButtonToolbar>
-                </FormGroup>
-              ) : mainGuest.rsvp === "declined" ? (
-                <FormGroup>
-                  <ButtonToolbar>
-                    <Button onClick={this.submit} appearance="ghost">
-                      RSVP
-                    </Button>
-                  </ButtonToolbar>
-                </FormGroup>
-              ) : null}
+
+              <FormGroup>
+                <ButtonToolbar>
+                  <Button onClick={this.submit} appearance="ghost">
+                    RSVP
+                  </Button>
+                  <Button onClick={this.open} appearance="ghost">
+                    Add Additional Guest
+                  </Button>
+                </ButtonToolbar>
+              </FormGroup>
             </Form>
           </Body>
         </div>
-        <Modal show={show} onHide={this.close} size="xs">
+        <Modal show={show} onHide={this.close} size="xs" style={{ top: "20%" }}>
           <Modal.Header>
             <Modal.Title>Additional Guest</Modal.Title>
           </Modal.Header>
@@ -215,19 +229,26 @@ class RSVP extends React.Component {
                 <FormControl name="name" />
               </FormGroup>
               <FormGroup controlId="mealChoice">
-                <RadioGroup
+                <ControlLabel>Dinner Choice</ControlLabel>
+                <InputPicker
+                  data={[
+                    {
+                      label: "Stuffed Portobello Mushroom (vegetarian)",
+                      value: VEG,
+                      role: "Master",
+                    },
+                    {
+                      label: "Beef Tenderlion",
+                      value: BEEF,
+                      role: "Master",
+                    },
+                  ]}
+                  style={{ width: "100%" }}
                   onChange={(value) => {
                     additionalGuest.mealChoice = value;
                     this.setState({ additionalGuest });
                   }}
-                  name="mealChoice"
-                >
-                  <p>Dinner Choice</p>
-                  <Radio value={VEG}>
-                    Stuffed Portobello Mushroom (vegetarian)
-                  </Radio>
-                  <Radio value={BEEF}>Beef Tenderlion</Radio>
-                </RadioGroup>
+                />
               </FormGroup>
             </Form>
           </Modal.Body>
