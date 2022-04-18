@@ -47,14 +47,14 @@ function Info() {
       <div>
         <div className="info-detail">
           <h4 className="section-header">
-            Denver Marriott South at Park Meadows | recommended
+            Denver Marriott South at Park Meadows (recommended)
           </h4>
           <p>10345 Park Meadows Dr, Lone Tree, CO 80124</p>
           <p>(303) 925-0004</p>
           <Button
             onClick={() => {
               window.open(
-                "https://www.marriott.com/en-us/hotels/denms-denver-marriott-south-at-park-meadows/overview/?gclid=CjwKCAjw0a-SBhBkEiwApljU0ql7hdx47XRTyBucaa9JPMQhww26rk_KCtUnNfgmZPhvjVIciggYVRoC_PEQAvD_BwE&gclsrc=aw.ds"
+                "https://www.marriott.com/en-us/hotels/denms-denver-marriott-south-at-park-meadows/overview/"
               );
             }}
             appearance="ghost"
@@ -71,7 +71,7 @@ function Info() {
           <Button
             onClick={() => {
               window.open(
-                "https://www.marriott.com/en-us/hotels/denms-denver-marriott-south-at-park-meadows/overview/?gclid=CjwKCAjw0a-SBhBkEiwApljU0ql7hdx47XRTyBucaa9JPMQhww26rk_KCtUnNfgmZPhvjVIciggYVRoC_PEQAvD_BwE&gclsrc=aw.ds"
+                "https://www.marriott.com/en-us/hotels/denpk-springhill-suites-denver-parker/overview/"
               );
             }}
             appearance="ghost"
@@ -86,7 +86,7 @@ function Info() {
           <Button
             onClick={() => {
               window.open(
-                "https://www.marriott.com/en-us/hotels/denms-denver-marriott-south-at-park-meadows/overview/?gclid=CjwKCAjw0a-SBhBkEiwApljU0ql7hdx47XRTyBucaa9JPMQhww26rk_KCtUnNfgmZPhvjVIciggYVRoC_PEQAvD_BwE&gclsrc=aw.ds"
+                "https://www.hilton.com/en/hotels/denpahx-hampton-suites-parker/"
               );
             }}
             appearance="ghost"

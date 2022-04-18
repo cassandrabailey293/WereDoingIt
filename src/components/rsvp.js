@@ -50,6 +50,14 @@ const Body = styled.div`
   margin: auto;
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+`;
+
 class RSVP extends React.Component {
   constructor(props) {
     super(props);
@@ -92,102 +100,104 @@ class RSVP extends React.Component {
     const { mainGuest, additionalGuestList, additionalGuest, show } =
       this.state;
     return (
-      <div className="rsvp-page">
-        <ScrollableAnchor id={"RSVP"}>
-          <h1 className="section-header">RSVP</h1>
-        </ScrollableAnchor>
-        <Body>
-          <Form
-            fluid
-            style={{ textAlign: "left" }}
-            onChange={(mainGuest) => {
-              this.setState({ mainGuest });
-            }}
-            formValue={mainGuest}
-          >
-            <FormGroup>
-              <ControlLabel>Name</ControlLabel>
-              <FormControl name="name" />
-            </FormGroup>
-            <FormGroup>
-              <ControlLabel>Email</ControlLabel>
-              <FormControl name="email" type="email" />
-            </FormGroup>
-            <FormGroup controlId="rsvp">
-              <RadioGroup
-                onChange={(value) => {
-                  mainGuest.rsvp = value;
-                  this.setState({ mainGuest });
-                }}
-                name="rsvp"
-              >
-                <Radio value="accepted">Accepts with Joy</Radio>
-                <Radio value="declined">Will Celebrate from Afar</Radio>
-              </RadioGroup>
-            </FormGroup>
-            {mainGuest.rsvp === "accepted" ? (
-              <FormGroup controlId="mealChoice">
+      <Wrapper className="rsvp-page">
+        <div>
+          <ScrollableAnchor id={"RSVP"}>
+            <h1 className="section-header">RSVP</h1>
+          </ScrollableAnchor>
+          <Body>
+            <Form
+              fluid
+              style={{ textAlign: "left" }}
+              onChange={(mainGuest) => {
+                this.setState({ mainGuest });
+              }}
+              formValue={mainGuest}
+            >
+              <FormGroup>
+                <ControlLabel>Name</ControlLabel>
+                <FormControl name="name" />
+              </FormGroup>
+              <FormGroup>
+                <ControlLabel>Email</ControlLabel>
+                <FormControl name="email" type="email" />
+              </FormGroup>
+              <FormGroup controlId="rsvp">
                 <RadioGroup
                   onChange={(value) => {
-                    mainGuest.mealChoice = value;
+                    mainGuest.rsvp = value;
                     this.setState({ mainGuest });
                   }}
-                  name="mealChoice"
+                  name="rsvp"
                 >
-                  <p>Dinner Choice</p>
-                  <Radio value={VEG}>
-                    Stuffed Portobello Mushroom (vegetarian)
-                  </Radio>
-                  <Radio value={BEEF}>Beef Tenderlion</Radio>
+                  <Radio value="accepted">Accepts with Joy</Radio>
+                  <Radio value="declined">Will Celebrate from Afar</Radio>
                 </RadioGroup>
               </FormGroup>
-            ) : null}
-            {additionalGuestList.length === 0 ? null : (
-              <div style={{ marginBottom: "24px" }}>
-                <List bordered hover>
-                  {additionalGuestList.map((item, index) => (
-                    <List.Item key={index} index={index}>
-                      {item.name} - {item.mealChoice}
-                      <Icon
-                        className="delete-icon"
-                        icon="trash"
-                        size="lg"
-                        onClick={() => {
-                          const index = additionalGuestList.indexOf(item);
-                          console.log(index, additionalGuestList, item);
-                          if (index > -1) {
-                            additionalGuestList.splice(index, 1);
-                          }
-                          this.setState({ additionalGuestList });
-                        }}
-                      />
-                    </List.Item>
-                  ))}
-                </List>
-              </div>
-            )}
-            {mainGuest.rsvp === "accepted" ? (
-              <FormGroup>
-                <ButtonToolbar>
-                  <Button onClick={this.submit} appearance="ghost">
-                    RSVP
-                  </Button>
-                  <Button onClick={this.open} appearance="ghost">
-                    Add Additional Guest
-                  </Button>
-                </ButtonToolbar>
-              </FormGroup>
-            ) : mainGuest.rsvp === "declined" ? (
-              <FormGroup>
-                <ButtonToolbar>
-                  <Button onClick={this.submit} appearance="ghost">
-                    RSVP
-                  </Button>
-                </ButtonToolbar>
-              </FormGroup>
-            ) : null}
-          </Form>
-        </Body>
+              {mainGuest.rsvp === "accepted" ? (
+                <FormGroup controlId="mealChoice">
+                  <RadioGroup
+                    onChange={(value) => {
+                      mainGuest.mealChoice = value;
+                      this.setState({ mainGuest });
+                    }}
+                    name="mealChoice"
+                  >
+                    <p>Dinner Choice</p>
+                    <Radio value={VEG}>
+                      Stuffed Portobello Mushroom (vegetarian)
+                    </Radio>
+                    <Radio value={BEEF}>Beef Tenderlion</Radio>
+                  </RadioGroup>
+                </FormGroup>
+              ) : null}
+              {additionalGuestList.length === 0 ? null : (
+                <div style={{ marginBottom: "24px" }}>
+                  <List bordered hover>
+                    {additionalGuestList.map((item, index) => (
+                      <List.Item key={index} index={index}>
+                        {item.name} - {item.mealChoice}
+                        <Icon
+                          className="delete-icon"
+                          icon="trash"
+                          size="lg"
+                          onClick={() => {
+                            const index = additionalGuestList.indexOf(item);
+                            console.log(index, additionalGuestList, item);
+                            if (index > -1) {
+                              additionalGuestList.splice(index, 1);
+                            }
+                            this.setState({ additionalGuestList });
+                          }}
+                        />
+                      </List.Item>
+                    ))}
+                  </List>
+                </div>
+              )}
+              {mainGuest.rsvp === "accepted" ? (
+                <FormGroup>
+                  <ButtonToolbar>
+                    <Button onClick={this.submit} appearance="ghost">
+                      RSVP
+                    </Button>
+                    <Button onClick={this.open} appearance="ghost">
+                      Add Additional Guest
+                    </Button>
+                  </ButtonToolbar>
+                </FormGroup>
+              ) : mainGuest.rsvp === "declined" ? (
+                <FormGroup>
+                  <ButtonToolbar>
+                    <Button onClick={this.submit} appearance="ghost">
+                      RSVP
+                    </Button>
+                  </ButtonToolbar>
+                </FormGroup>
+              ) : null}
+            </Form>
+          </Body>
+        </div>
         <Modal show={show} onHide={this.close} size="xs">
           <Modal.Header>
             <Modal.Title>Additional Guest</Modal.Title>
@@ -244,7 +254,7 @@ class RSVP extends React.Component {
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
+      </Wrapper>
     );
   }
 }
