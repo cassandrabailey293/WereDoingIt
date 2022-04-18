@@ -31,18 +31,8 @@ function Home(props) {
   return (
     <div className={wrapperClass}>
       <Affix>
-        <NavigationBar />
+        <NavigationBar {...props} />
       </Affix>
-      {/* <div>
-        <h1>Device Test!</h1>
-        {props.isDesktopOrLaptop && <p>You are a desktop or laptop</p>}
-        {props.isBigScreen && <p>You have a huge screen</p>}
-        {props.isTabletOrMobile && <p>You are a tablet or mobile phone</p>}
-        <p>
-          Your are in {props.isPortrait ? "portrait" : "landscape"} orientation
-        </p>
-        {props.isRetina && <p>You are retina</p>}
-      </div> */}
       <Marriage>CELEBRATING THE MARRIAGE OF</Marriage>
       <Main>Cassandra and Andrew</Main>
       <Date>09.03.2022 - PARKER, COLORADO</Date>

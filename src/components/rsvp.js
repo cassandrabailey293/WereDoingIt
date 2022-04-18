@@ -100,7 +100,6 @@ class RSVP extends React.Component {
       e.groupID = groupID;
       addDoc(collection(db, "guestList"), e);
     });
-    console.log(this.state);
   };
   render() {
     const { mainGuest, additionalGuestList, additionalGuest, show } =
@@ -186,7 +185,6 @@ class RSVP extends React.Component {
                           size="lg"
                           onClick={() => {
                             const index = additionalGuestList.indexOf(item);
-                            console.log(index, additionalGuestList, item);
                             if (index > -1) {
                               additionalGuestList.splice(index, 1);
                             }
@@ -264,7 +262,6 @@ class RSVP extends React.Component {
                   },
                 });
                 this.close();
-                console.log(this.state);
               }}
               appearance="primary"
             >

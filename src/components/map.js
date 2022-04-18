@@ -27,7 +27,6 @@ export class MapContainer extends Component {
   }
 
   onMarkerClick = (props, marker, e) => {
-    console.log(marker);
     let place = this.state.places.find((p) => p.name === marker.title);
     this.setState({
       selectedPlace: place,
@@ -51,7 +50,6 @@ export class MapContainer extends Component {
     );
 
     let callback = (place, status) => {
-      console.log(place);
       if (status == window.google.maps.places.PlacesServiceStatus.OK) {
         this.setState({ places: this.state.places.concat([place]) });
       }
