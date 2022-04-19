@@ -25,7 +25,7 @@ function Info() {
   return (
     <div className="info-page">
       <ScrollableAnchor id={"Info"}>
-        <h1 className="info-detail section-header">Info</h1>
+        <h1 className="section-header">Info</h1>
       </ScrollableAnchor>
       <Columns>
         <DeatilWrapper className="info-detail" style={{ paddingRight: "20px" }}>
@@ -50,7 +50,7 @@ function Info() {
         </DeatilWrapper>
       </Columns>
 
-      <h2 className="info-detail section-header">Accommodations</h2>
+      <h2 className="section-header">Accommodations</h2>
       <div>
         <div className="info-detail">
           <h4 className="section-header">

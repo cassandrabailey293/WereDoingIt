@@ -13,6 +13,7 @@ import {
   List,
   Icon,
   InputPicker,
+    Drawer,
 } from "rsuite";
 import React from "react";
 // Import the functions you need from the SDKs you need
@@ -40,6 +41,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+const acceptedMessage = "We look forward to celebrating with you!"
+const rejectedMessage= "Sorry to miss you - hope that we can celebrate together in the future!"
+
 var db = getFirestore(app);
 
 const BEEF = "Beef";
@@ -64,6 +68,14 @@ const Wrapper = styled.div`
   height: 100vh;
 `;
 
+const NotificationContentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: inherit;
+`;
+
 class RSVP extends React.Component {
   constructor(props) {
     super(props);
@@ -79,14 +91,19 @@ class RSVP extends React.Component {
         name: "",
         mealChoice: "",
       },
-      show: false,
+        showModal: false,
+        showNotification: false,
     };
-  }
+    }
+    onNotificationHide = () => {
+        this.setState({ showNotification: false })
+        console.log("ON HIDE")
+    }
   close = () => {
-    this.setState({ show: false });
+    this.setState({ showModal: false });
   };
   open = () => {
-    this.setState({ show: true });
+    this.setState({ showModal: true });
   };
   submit = () => {
     let flatGuestList = this.state.additionalGuestList.map((guest) => {
@@ -98,11 +115,15 @@ class RSVP extends React.Component {
     const groupID = uuidv4();
     flatGuestList.forEach((e) => {
       e.groupID = groupID;
-      addDoc(collection(db, "guestList"), e);
+        addDoc(collection(db, "guestList"), e).then(() => {
+            console.log("THEEES", this)
+            this.setState({ showNotification: true });
+            console.log("addDoc then")
+        });
     });
   };
   render() {
-    const { mainGuest, additionalGuestList, additionalGuest, show } =
+    const { mainGuest, additionalGuestList, additionalGuest, showModal, showNotification } =
       this.state;
     const Body = this.props.isDesktopOrLaptop ? DesktopBody : MobileBody;
     return (
@@ -210,7 +231,7 @@ class RSVP extends React.Component {
             </Form>
           </Body>
         </div>
-        <Modal show={show} onHide={this.close} size="xs" style={{ top: "20%" }}>
+        <Modal showModal={showModal} onHide={this.close} size="xs" style={{ top: "20%" }}>
           <Modal.Header>
             <Modal.Title>Additional Guest</Modal.Title>
           </Modal.Header>
@@ -271,7 +292,17 @@ class RSVP extends React.Component {
               Cancel
             </Button>
           </Modal.Footer>
-        </Modal>
+            </Modal>
+
+            <Drawer style={{opacity:"80%"}}
+                show={this.state.showNotification}
+                onHide={this.onNotificationHide}
+                placement={"top"}
+            >
+                <NotificationContentWrapper>Success! Your RSVP has been received.
+                    {this.state.mainGuest.rsvp ? acceptedMessage : rejectedMessage }
+                </NotificationContentWrapper>
+            </Drawer>
       </Wrapper>
     );
   }
