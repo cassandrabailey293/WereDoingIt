@@ -7,8 +7,6 @@ import {
   FormGroup,
   ControlLabel,
   FormControl,
-  Radio,
-  RadioGroup,
   Modal,
   List,
   Icon,
@@ -126,8 +124,11 @@ class RSVP extends React.Component {
     const { mainGuest, additionalGuestList, additionalGuest, showModal, showNotification } =
       this.state;
     const Body = this.props.isDesktopOrLaptop ? DesktopBody : MobileBody;
+    const backgroundClass = this.props.isDesktopOrLaptop
+      ? "rsvp-page"
+      : "rsvp-page rsvp-page-mobile";
     return (
-      <Wrapper className="rsvp-page">
+      <Wrapper className={backgroundClass}>
         <div>
           <ScrollableAnchor id={"RSVP"}>
             <h1 className="section-header">RSVP</h1>
@@ -151,47 +152,47 @@ class RSVP extends React.Component {
               </FormGroup>
               <FormGroup controlId="rsvp">
                 <ControlLabel>Are you attending?</ControlLabel>
-                <InputPicker
-                  data={[
-                    {
-                      label: "Accepts with Joy",
-                      value: "accepted",
-                      role: "Master",
-                    },
-                    {
-                      label: "Will Celebrate from Afar",
-                      value: "declined",
-                      role: "Master",
-                    },
-                  ]}
-                  style={{ width: "100%" }}
+                <select
                   onChange={(value) => {
-                    mainGuest.rsvp = value;
+                    mainGuest.rsvp = value.target.value;
                     this.setState({ mainGuest });
                   }}
-                />
+                  style={{
+                    width: "100%",
+                    paddingTop: "7px",
+                    paddingBottom: "7px",
+                    borderRadius: "6px",
+                  }}
+                >
+                  <option style={{ display: "none" }} selected>
+                    Select
+                  </option>
+                  <option value="accepted">Accepts with Joy</option>
+                  <option value="declined">Will Celebrate from Afar</option>
+                </select>
               </FormGroup>
               <FormGroup controlId="mealChoice">
                 <ControlLabel>Dinner Choice</ControlLabel>
-                <InputPicker
-                  data={[
-                    {
-                      label: "Stuffed Portobello Mushroom (vegetarian)",
-                      value: VEG,
-                      role: "Master",
-                    },
-                    {
-                      label: "Beef Tenderlion",
-                      value: BEEF,
-                      role: "Master",
-                    },
-                  ]}
-                  style={{ width: "100%" }}
+                <select
                   onChange={(value) => {
-                    mainGuest.mealChoice = value;
+                    mainGuest.mealChoice = value.target.value;
                     this.setState({ mainGuest });
                   }}
-                />
+                  style={{
+                    width: "100%",
+                    paddingTop: "7px",
+                    paddingBottom: "7px",
+                    borderRadius: "6px",
+                  }}
+                >
+                  <option style={{ display: "none" }} selected>
+                    Select
+                  </option>
+                  <option value={VEG}>
+                    Stuffed Portobello Mushroom (vegetarian)
+                  </option>
+                  <option value={BEEF}>Beef Tenderlion</option>
+                </select>
               </FormGroup>
 
               {additionalGuestList.length === 0 ? null : (
