@@ -23,6 +23,9 @@ function Registry() {
         style={{ marginTop: "20px", marginBottom: "50px" }}
         size="lg"
         appearance="ghost"
+        onClick={() => {
+          window.open("https://www.zola.com/registry/baileyzimmermanwedding");
+        }}
       >
         ZOLA
       </Button>
