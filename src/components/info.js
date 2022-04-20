@@ -10,6 +10,13 @@ const Columns = styled.div`
   justify-content: space-between;
 `;
 
+const Rows = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
 const MapWrapper = styled.div`
   padding-top: 50px;
   padding-bottom: 50px;
@@ -21,13 +28,14 @@ const DeatilWrapper = styled.div`
   flex-basis: 0;
 `;
 
-function Info() {
+function Info(props) {
+  const Wrapper = props.isDesktopOrLaptop && !props.isPortrait ? Columns : Rows;
   return (
     <div className="info-page">
       <ScrollableAnchor id={"Info"}>
         <h1 className="section-header">Info</h1>
       </ScrollableAnchor>
-      <Columns>
+      <Wrapper>
         <DeatilWrapper className="info-detail" style={{ paddingRight: "20px" }}>
           <h1 className="section-header">When</h1>
           <p>September 3rd, 2022</p>
@@ -48,7 +56,7 @@ function Info() {
           <h1 className="section-header">Wear</h1>
           <p>Cocktail attire and bring your dancing shoes</p>
         </DeatilWrapper>
-      </Columns>
+      </Wrapper>
 
       <h2 className="section-header">Accommodations</h2>
       <div>

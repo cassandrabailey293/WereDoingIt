@@ -191,7 +191,7 @@ class RSVP extends React.Component {
                   <option value={VEG}>
                     Stuffed Portobello Mushroom (vegetarian)
                   </option>
-                  <option value={BEEF}>Beef Tenderlion</option>
+                  <option value={BEEF}>Beef Tenderloin</option>
                 </select>
               </FormGroup>
 
@@ -250,25 +250,26 @@ class RSVP extends React.Component {
               </FormGroup>
               <FormGroup controlId="mealChoice">
                 <ControlLabel>Dinner Choice</ControlLabel>
-                <InputPicker
-                  data={[
-                    {
-                      label: "Stuffed Portobello Mushroom (vegetarian)",
-                      value: VEG,
-                      role: "Master",
-                    },
-                    {
-                      label: "Beef Tenderlion",
-                      value: BEEF,
-                      role: "Master",
-                    },
-                  ]}
-                  style={{ width: "100%" }}
+                <select
                   onChange={(value) => {
-                    additionalGuest.mealChoice = value;
+                    additionalGuest.mealChoice = value.target.value;
                     this.setState({ additionalGuest });
                   }}
-                />
+                  style={{
+                    width: "100%",
+                    paddingTop: "7px",
+                    paddingBottom: "7px",
+                    borderRadius: "6px",
+                  }}
+                >
+                  <option style={{ display: "none" }} selected>
+                    Select
+                  </option>
+                  <option value={VEG}>
+                    Stuffed Portobello Mushroom (vegetarian)
+                  </option>
+                  <option value={BEEF}>Beef Tenderloin</option>
+                </select>
               </FormGroup>
             </Form>
           </Modal.Body>
