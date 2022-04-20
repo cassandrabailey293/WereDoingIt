@@ -95,13 +95,12 @@ class RSVP extends React.Component {
     }
     onNotificationHide = () => {
         this.setState({ showNotification: false })
-        console.log("ON HIDE")
     }
   close = () => {
     this.setState({ showModal: false });
   };
-  open = () => {
-    this.setState({ showModal: true });
+    open = () => {
+        this.setState({ showModal: true });
   };
   submit = () => {
     let flatGuestList = this.state.additionalGuestList.map((guest) => {
@@ -114,13 +113,11 @@ class RSVP extends React.Component {
     flatGuestList.forEach((e) => {
       e.groupID = groupID;
         addDoc(collection(db, "guestList"), e).then(() => {
-            console.log("THEEES", this)
             this.setState({ showNotification: true });
-            console.log("addDoc then")
         });
     });
   };
-  render() {
+    render() {
     const { mainGuest, additionalGuestList, additionalGuest, showModal, showNotification } =
       this.state;
     const Body = this.props.isDesktopOrLaptop ? DesktopBody : MobileBody;
@@ -232,7 +229,7 @@ class RSVP extends React.Component {
             </Form>
           </Body>
         </div>
-        <Modal showModal={showModal} onHide={this.close} size="xs" style={{ top: "20%" }}>
+        <Modal show={showModal} onHide={this.close} size="xs" style={{ top: "20%" }}>
           <Modal.Header>
             <Modal.Title>Additional Guest</Modal.Title>
           </Modal.Header>

@@ -69,10 +69,12 @@ function Info(props) {
         <div className="info-detail">
                   <h4 className="section-header ourstory-andinfo-detail">
             Denver Marriott South at Park Meadows (recommended)
-          </h4>
-          <p>10345 Park Meadows Dr, Lone Tree, CO 80124</p>
-          <p>(303) 925-0004</p>
-          <Button
+                  </h4>
+                  <br/>
+                  <p className="ourstory-andinfo-detail" style={{fontSize: "15px"}}>10345 Park Meadows Dr, Lone Tree, CO 80124</p>
+                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>(303) 925-0004</p>
+                  <br/>
+                  <Button
             onClick={() => {
               window.open(
                 "https://www.marriott.com/en-us/hotels/denms-denver-marriott-south-at-park-meadows/overview/"
@@ -84,11 +86,13 @@ function Info(props) {
           </Button>
         </div>
         <div className="info-detail">
-          <h4 className="section-header">
+                  <h4 className="section-header ourstory-andinfo-detail">
             SpringHill Suites by Marriott Denver Parker
-          </h4>
-          <p>9355 Silverado Dr, Parker, CO 80134</p>
-          <p>(303) 841 - 6700</p>
+                  </h4>
+                  <br/>
+                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>9355 Silverado Dr, Parker, CO 80134</p>
+                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>(303) 841 - 6700</p>
+                  <br/>
           <Button
             onClick={() => {
               window.open(
@@ -102,8 +106,9 @@ function Info(props) {
         </div>
         <div className="info-detail">
           <h4 className="section-header">Hampton Inn & Suites Parker</h4>
-          <p>19010 Cottonwood Dr, Parker, CO 80138</p>
-                  <p>(303) 841 - 2977</p>
+                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>19010 Cottonwood Dr, Parker, CO 80138</p>
+                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>(303) 841 - 2977</p>
+                  <br / >
                   <Button color='yellow'
             onClick={() => {
               window.open(
