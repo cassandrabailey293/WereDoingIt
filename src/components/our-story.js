@@ -22,29 +22,24 @@ const MobilepWrapper = styled.div`
   flex-direction: column;
 `;
 
-const TextWrapper = styled.div`
-  font-family: fantasy;
-  font-size: 20px;
-`;
-
 function OurStory(props) {
   const Image = props.isDesktopOrLaptop ? ImageDesktop : ImageMobile;
   const Wrapper = props.isDesktopOrLaptop ? DesktopWrapper : MobilepWrapper;
   return (
     <div style={{ backgroundColor: "#e0e2e9" }}>
       <ScrollableAnchor id={"OurStory"}>
-        <h1 style={{ paddingBottom: "10px" }} className="section-header">
+        <h1 style={{ paddingBottom: "10px" }} className="grey-header">
           Our Story
         </h1>
       </ScrollableAnchor>
-      <Wrapper>
-        <TextWrapper>
+          <Wrapper>
+          <div className='ourstory-andinfo-detail'>
           <p>
             Colorado was a new adventure for Cassy - when she moved from
             Virginia out West, she had no idea what to expect. Andrew, a
             "Colorado Native" (born & raised in St. Louis, MO), worked for a
             company called Connexta - the connection that drew the two together.
-          </p>
+           </p>
           <p>
             The chemistry between them only continued to React - and with COVID
             ravaging the world, Andrew and Cass found light and love within each
@@ -58,7 +53,7 @@ function OurStory(props) {
             you in celebration of their union and their happily ever after{"  "}
             <Icon icon="heart" />
           </p>
-        </TextWrapper>
+        </div>
         {OurStoryDetails}
         <Image src={ourStoryCollage} alt="we so cute" />
       </Wrapper>

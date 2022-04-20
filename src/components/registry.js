@@ -14,8 +14,8 @@ function Registry() {
   return (
     <Body>
       <ScrollableAnchor id={"Registry"}>
-        <h1 className="section-header">Registry</h1>
-      </ScrollableAnchor>
+              <h1 className="section-header" style={{ color: "darkolivegreen" }}>Registry</h1>
+          </ScrollableAnchor>
           <Pdiddy>
               Our registry is hosted at Zola. Please click the Zola button below to be redirected to our registry. Thank you!
       </Pdiddy>

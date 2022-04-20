@@ -33,35 +33,41 @@ function Info(props) {
   return (
     <div className="info-page">
       <ScrollableAnchor id={"Info"}>
-        <h1 className="section-header">Info</h1>
-      </ScrollableAnchor>
+              <h1 className="section-header">Info</h1>
+          </ScrollableAnchor>
+          <br />
       <Wrapper>
         <DeatilWrapper className="info-detail" style={{ paddingRight: "20px" }}>
-          <h1 className="section-header">When</h1>
-          <p>September 3rd, 2022</p>
-          <p>Please arrive by 4:30 pm</p>
-        </DeatilWrapper>
+          <h1 className="section-header info-subheader">When</h1>
+                  <p className="ourstory-andinfo-detail" style={{color: "white"}}>September 3rd, 2022</p>
+                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>Please arrive by 4:30 pm. <br/>The ceremony will begin promptly at 5.</p>
+              </DeatilWrapper>
+              <br/>
         <DeatilWrapper className="info-detail" style={{ paddingRight: "20px" }}>
-          <h1 className="section-header">Where</h1>
-          <p>
+          <h1 className="section-header info-subheader">Where</h1>
+                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
             Ceremony will be held outdoors (weather permitting) in the
-            courtyard, followed by cocktail hour, dinner & reception on the
-            Villa grounds
-          </p>
-          <p>Villa Parker</p>
-          <p>10750 S Pine Dr</p>
-          <p>Parker, Colorado 80138</p>
-        </DeatilWrapper>
+                      courtyard, <br/>followed by cocktail hour,
+                      dinner & reception on the
+            Villa grounds.
+                  </p>
+                  <br/>
+                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>Villa Parker</p>
+                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>10750 S Pine Dr</p>
+                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>Parker, Colorado 80138</p>
+              </DeatilWrapper>
+              <br/>
         <DeatilWrapper className="info-detail">
-          <h1 className="section-header">Wear</h1>
-          <p>Cocktail attire and bring your dancing shoes</p>
+          <h1 className="section-header info-subheader">Wear</h1>
+                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>Cocktail attire (and bring your dancing shoes!)</p>
         </DeatilWrapper>
       </Wrapper>
-
-      <h2 className="section-header">Accommodations</h2>
+          <br />
+          <br/>
+      <h2 className="section-header info-subheader">Accommodations</h2>
       <div>
         <div className="info-detail">
-          <h4 className="section-header">
+                  <h4 className="section-header ourstory-andinfo-detail">
             Denver Marriott South at Park Meadows (recommended)
           </h4>
           <p>10345 Park Meadows Dr, Lone Tree, CO 80124</p>
@@ -97,8 +103,8 @@ function Info(props) {
         <div className="info-detail">
           <h4 className="section-header">Hampton Inn & Suites Parker</h4>
           <p>19010 Cottonwood Dr, Parker, CO 80138</p>
-          <p>(303) 841 - 2977</p>
-          <Button
+                  <p>(303) 841 - 2977</p>
+                  <Button color='yellow'
             onClick={() => {
               window.open(
                 "https://www.hilton.com/en/hotels/denpahx-hampton-suites-parker/"
