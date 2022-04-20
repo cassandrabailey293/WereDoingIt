@@ -133,7 +133,7 @@ class RSVP extends React.Component {
       <Wrapper className={backgroundClass}>
         <div>
           <ScrollableAnchor id={"RSVP"}>
-            <h1 className="section-header">RSVP</h1>
+            <h1 className="section-header grey-header">RSVP</h1>
           </ScrollableAnchor>
           <Body>
             <Form

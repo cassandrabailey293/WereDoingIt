@@ -43,7 +43,7 @@
 }
 
 .info-page {
-  background: url("./img/villa-parker.jpeg") no-repeat center center;
+  background: url("./img/villa-parker-edit.jpeg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -94,11 +94,15 @@
   cursor: pointer;
 }
 
+.info-header {
+    color: black;
+}
+
 .info-subheader {
     font-family: Arcadia;
     text-align: center;
     color: white;
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 30px;
 }
 

@@ -52,7 +52,8 @@ function OurStory(props) {
             Otto and Piper (Rest in Peace Ezio, 2/4/22). They invite & welcome
             you in celebration of their union and their happily ever after{"  "}
             <Icon icon="heart" />
-          </p>
+                  </p>
+                  <br/>
         </div>
         {OurStoryDetails}
         <Image src={ourStoryCollage} alt="we so cute" />

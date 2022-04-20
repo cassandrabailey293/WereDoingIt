@@ -33,7 +33,7 @@ function Info(props) {
   return (
     <div className="info-page">
       <ScrollableAnchor id={"Info"}>
-              <h1 className="section-header">Info</h1>
+              <h1 className="section-header info-header">Information</h1>
           </ScrollableAnchor>
           <br />
       <Wrapper>
@@ -74,7 +74,7 @@ function Info(props) {
                   <p className="ourstory-andinfo-detail" style={{fontSize: "15px"}}>10345 Park Meadows Dr, Lone Tree, CO 80124</p>
                   <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>(303) 925-0004</p>
                   <br/>
-                  <Button
+                  <Button color="white"
             onClick={() => {
               window.open(
                 "https://www.marriott.com/en-us/hotels/denms-denver-marriott-south-at-park-meadows/overview/"
@@ -93,7 +93,7 @@ function Info(props) {
                   <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>9355 Silverado Dr, Parker, CO 80134</p>
                   <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>(303) 841 - 6700</p>
                   <br/>
-          <Button
+          <Button color="white"
             onClick={() => {
               window.open(
                 "https://www.marriott.com/en-us/hotels/denpk-springhill-suites-denver-parker/overview/"
@@ -105,11 +105,12 @@ function Info(props) {
           </Button>
         </div>
         <div className="info-detail">
-          <h4 className="section-header">Hampton Inn & Suites Parker</h4>
+                  <h4 className="section-header ourstory-andinfo-detail">Hampton Inn & Suites Parker</h4>
+                  <br/>
                   <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>19010 Cottonwood Dr, Parker, CO 80138</p>
                   <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>(303) 841 - 2977</p>
                   <br / >
-                  <Button color='yellow'
+                  <Button color='white'
             onClick={() => {
               window.open(
                 "https://www.hilton.com/en/hotels/denpahx-hampton-suites-parker/"
