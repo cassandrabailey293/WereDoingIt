@@ -10,8 +10,7 @@ import {
   Modal,
   List,
   Icon,
-  InputPicker,
-    Drawer,
+  Notification
 } from "rsuite";
 import React from "react";
 // Import the functions you need from the SDKs you need
@@ -40,7 +39,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 const acceptedMessage = "We look forward to celebrating with you!"
-const rejectedMessage= "Sorry to miss you - hope that we can celebrate together in the future!"
+const rejectedMessage = "Sorry to miss you - hope that we can celebrate together in the future!"
 
 var db = getFirestore(app);
 
@@ -81,7 +80,7 @@ class RSVP extends React.Component {
       mainGuest: {
         name: "",
         email: "",
-        rsvp: "",
+        rsvp: null,
         mealChoice: "",
       },
       additionalGuestList: [],
@@ -99,10 +98,10 @@ class RSVP extends React.Component {
   close = () => {
     this.setState({ showModal: false });
   };
-    open = () => {
+   open = () => {
         this.setState({ showModal: true });
   };
-  submit = () => {
+   submit = () => {
     let flatGuestList = this.state.additionalGuestList.map((guest) => {
       guest.email = this.state.mainGuest.email;
       guest.rsvp = this.state.mainGuest.rsvp;
@@ -111,8 +110,14 @@ class RSVP extends React.Component {
     flatGuestList.push(this.state.mainGuest);
     const groupID = uuidv4();
     flatGuestList.forEach((e) => {
-      e.groupID = groupID;
+        e.groupID = groupID;
+        e.date = new Date().toUTCString();
+        const message = e.rsvp ? acceptedMessage : rejectedMessage;
         addDoc(collection(db, "guestList"), e).then(() => {
+            Notification.open({
+                title: "You successfully RSVP'ed!",
+                description:  message,
+            });
             this.setState({ showNotification: true });
         });
     });
@@ -151,7 +156,7 @@ class RSVP extends React.Component {
                 <ControlLabel>Are you attending?</ControlLabel>
                 <select
                   onChange={(value) => {
-                    mainGuest.rsvp = value.target.value;
+                    mainGuest.rsvp = value.target.value === "true";
                     this.setState({ mainGuest });
                   }}
                   style={{
@@ -164,8 +169,8 @@ class RSVP extends React.Component {
                   <option style={{ display: "none" }} selected>
                     Select
                   </option>
-                  <option value="accepted">Accepts with Joy</option>
-                  <option value="declined">Will Celebrate from Afar</option>
+                <option value={true}>Accepts with Joy</option>
+                <option value={false}>Will Celebrate from Afar</option>
                 </select>
               </FormGroup>
               <FormGroup controlId="mealChoice">
@@ -218,7 +223,7 @@ class RSVP extends React.Component {
 
               <FormGroup>
                 <ButtonToolbar>
-                  <Button onClick={this.submit} appearance="ghost">
+                                <Button disabled={this.state.mainGuest.rsvp == null} onClick={this.submit} appearance="ghost">
                     RSVP
                   </Button>
                   <Button onClick={this.open} appearance="ghost">
@@ -292,16 +297,6 @@ class RSVP extends React.Component {
             </Button>
           </Modal.Footer>
             </Modal>
-
-            <Drawer style={{opacity:"80%"}}
-                show={this.state.showNotification}
-                onHide={this.onNotificationHide}
-                placement={"top"}
-            >
-                <NotificationContentWrapper>Success! Your RSVP has been received.
-                    {this.state.mainGuest.rsvp ? acceptedMessage : rejectedMessage }
-                </NotificationContentWrapper>
-            </Drawer>
       </Wrapper>
     );
   }
