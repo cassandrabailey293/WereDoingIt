@@ -64,8 +64,8 @@
 
 .rs-btn {
   border-radius: 20px !important;
-  color: black !important;
-  border: 1px solid black !important;
+  /* color: black !important;
+  border: 1px solid black !important; */
 }
 
 .rs-picker-has-value .rs-btn .rs-picker-toggle-value, .rs-picker-has-value .rs-picker-toggle .rs-picker-toggle-value {

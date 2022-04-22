@@ -14,13 +14,19 @@ function Registry() {
   return (
     <Body>
       <ScrollableAnchor id={"Registry"}>
-              <h1 className="section-header grey-header">Registry</h1>
-          </ScrollableAnchor>
-          <Pdiddy>
-              Our registry is hosted at Zola. Please click the Zola button below to be redirected to our registry. Thank you!
+        <h1 className="section-header grey-header">Registry</h1>
+      </ScrollableAnchor>
+      <Pdiddy>
+        Our registry is hosted at Zola. Please click the Zola button below to be
+        redirected to our registry. Thank you!
       </Pdiddy>
       <Button
-        style={{ marginTop: "20px", marginBottom: "50px" }}
+        style={{
+          marginTop: "20px",
+          marginBottom: "50px",
+          color: "black",
+          border: "1px solid black",
+        }}
         size="lg"
         appearance="ghost"
         onClick={() => {

@@ -28,95 +28,133 @@ const DeatilWrapper = styled.div`
   flex-basis: 0;
 `;
 
+const buttonStyle = {
+  color: "white",
+  border: "1px solid white",
+  fontWeight: "bold",
+};
+
 function Info(props) {
   const Wrapper = props.isDesktopOrLaptop && !props.isPortrait ? Columns : Rows;
   return (
     <div className="info-page">
       <ScrollableAnchor id={"Info"}>
-              <h1 className="section-header info-header">Information</h1>
-          </ScrollableAnchor>
-          <br />
+        <h1 className="section-header info-header">Information</h1>
+      </ScrollableAnchor>
+      <br />
       <Wrapper>
         <DeatilWrapper className="info-detail" style={{ paddingRight: "20px" }}>
           <h1 className="section-header info-subheader">When</h1>
-                  <p className="ourstory-andinfo-detail" style={{color: "white"}}>September 3rd, 2022</p>
-                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>Please arrive by 4:30 pm. <br/>The ceremony will begin promptly at 5.</p>
-              </DeatilWrapper>
-              <br/>
+          <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+            September 3rd, 2022
+          </p>
+          <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+            Please arrive by 4:30 pm. <br />
+            The ceremony will begin promptly at 5.
+          </p>
+        </DeatilWrapper>
+        <br />
         <DeatilWrapper className="info-detail" style={{ paddingRight: "20px" }}>
           <h1 className="section-header info-subheader">Where</h1>
-                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+          <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
             Ceremony will be held outdoors (weather permitting) in the
-                      courtyard, <br/>followed by cocktail hour,
-                      dinner & reception on the
-            Villa grounds.
-                  </p>
-                  <br/>
-                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>Villa Parker</p>
-                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>10750 S Pine Dr</p>
-                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>Parker, Colorado 80138</p>
-              </DeatilWrapper>
-              <br/>
+            courtyard, <br />
+            followed by cocktail hour, dinner & reception on the Villa grounds.
+          </p>
+          <br />
+          <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+            Villa Parker
+          </p>
+          <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+            10750 S Pine Dr
+          </p>
+          <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+            Parker, Colorado 80138
+          </p>
+        </DeatilWrapper>
+        <br />
         <DeatilWrapper className="info-detail">
           <h1 className="section-header info-subheader">Wear</h1>
-                  <p className="ourstory-andinfo-detail" style={{ color: "white" }}>Cocktail attire (and bring your dancing shoes!)</p>
+          <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+            Cocktail attire (and bring your dancing shoes!)
+          </p>
         </DeatilWrapper>
       </Wrapper>
-          <br />
-          <br/>
+      <br />
+      <br />
       <h2 className="section-header info-subheader">Accommodations</h2>
       <div>
         <div className="info-detail">
-                  <h4 className="section-header ourstory-andinfo-detail">
+          <h4 className="section-header ourstory-andinfo-detail">
             Denver Marriott South at Park Meadows (recommended)
-                  </h4>
-                  <br/>
-                  <p className="ourstory-andinfo-detail" style={{fontSize: "15px"}}>10345 Park Meadows Dr, Lone Tree, CO 80124</p>
-                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>(303) 925-0004</p>
-                  <br/>
-                  <Button color="white"
+          </h4>
+          <br />
+          <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>
+            10345 Park Meadows Dr, Lone Tree, CO 80124
+          </p>
+          <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>
+            (303) 925-0004
+          </p>
+          <br />
+          <Button
+            color="white"
             onClick={() => {
               window.open(
                 "https://www.marriott.com/en-us/hotels/denms-denver-marriott-south-at-park-meadows/overview/"
               );
             }}
             appearance="ghost"
+            style={buttonStyle}
           >
             Hotel
           </Button>
         </div>
         <div className="info-detail">
-                  <h4 className="section-header ourstory-andinfo-detail">
+          <h4 className="section-header ourstory-andinfo-detail">
             SpringHill Suites by Marriott Denver Parker
-                  </h4>
-                  <br/>
-                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>9355 Silverado Dr, Parker, CO 80134</p>
-                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>(303) 841 - 6700</p>
-                  <br/>
-          <Button color="white"
+          </h4>
+          <br />
+          <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>
+            9355 Silverado Dr, Parker, CO 80134
+          </p>
+          <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>
+            (303) 841 - 6700
+          </p>
+          <br />
+          <Button
+            color="white"
             onClick={() => {
               window.open(
                 "https://www.marriott.com/en-us/hotels/denpk-springhill-suites-denver-parker/overview/"
               );
             }}
             appearance="ghost"
+            style={buttonStyle}
           >
             Hotel
           </Button>
         </div>
         <div className="info-detail">
-                  <h4 className="section-header ourstory-andinfo-detail">Hampton Inn & Suites Parker</h4>
-                  <br/>
-                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>19010 Cottonwood Dr, Parker, CO 80138</p>
-                  <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>(303) 841 - 2977</p>
-                  <br / >
-                  <Button color='white'
+          <h4 className="section-header ourstory-andinfo-detail">
+            Hampton Inn & Suites Parker
+          </h4>
+          <br />
+          <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>
+            19010 Cottonwood Dr, Parker, CO 80138
+          </p>
+          <p className="ourstory-andinfo-detail" style={{ fontSize: "15px" }}>
+            (303) 841 - 2977
+          </p>
+          <br />
+          <Button
+            color="white"
             onClick={() => {
               window.open(
                 "https://www.hilton.com/en/hotels/denpahx-hampton-suites-parker/"
               );
             }}
             appearance="ghost"
+            style={buttonStyle}
           >
             Hotel
           </Button>

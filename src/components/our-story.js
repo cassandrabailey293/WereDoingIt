@@ -32,14 +32,14 @@ function OurStory(props) {
           Our Story
         </h1>
       </ScrollableAnchor>
-          <Wrapper>
-          <div className='ourstory-andinfo-detail'>
+      <Wrapper>
+        <div className="ourstory-andinfo-detail">
           <p>
             Colorado was a new adventure for Cassy - when she moved from
             Virginia out West, she had no idea what to expect. Andrew, a
             "Colorado Native" (born & raised in St. Louis, MO), worked for a
             company called Connexta - the connection that drew the two together.
-           </p>
+          </p>
           <p>
             The chemistry between them only continued to React - and with COVID
             ravaging the world, Andrew and Cass found light and love within each
@@ -52,8 +52,8 @@ function OurStory(props) {
             Otto and Piper (Rest in Peace Ezio, 2/4/22). They invite & welcome
             you in celebration of their union and their happily ever after{"  "}
             <Icon icon="heart" />
-                  </p>
-                  <br/>
+          </p>
+          <br />
         </div>
         {OurStoryDetails}
         <Image src={ourStoryCollage} alt="we so cute" />

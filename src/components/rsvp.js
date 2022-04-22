@@ -10,7 +10,7 @@ import {
   Modal,
   List,
   Icon,
-  Notification
+  Notification,
 } from "rsuite";
 import React from "react";
 // Import the functions you need from the SDKs you need
@@ -38,8 +38,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-const acceptedMessage = "We look forward to celebrating with you!"
-const rejectedMessage = "Sorry to miss you - hope that we can celebrate together in the future!"
+const acceptedMessage = "We look forward to celebrating with you!";
+const rejectedMessage =
+  "Sorry to miss you - hope that we can celebrate together in the future!";
 
 var db = getFirestore(app);
 
@@ -73,6 +74,11 @@ const NotificationContentWrapper = styled.div`
   height: inherit;
 `;
 
+const buttonStyle = {
+  color: "black",
+  border: "1px solid black",
+};
+
 class RSVP extends React.Component {
   constructor(props) {
     super(props);
@@ -88,20 +94,20 @@ class RSVP extends React.Component {
         name: "",
         mealChoice: "",
       },
-        showModal: false,
-        showNotification: false,
+      showModal: false,
+      showNotification: false,
     };
-    }
-    onNotificationHide = () => {
-        this.setState({ showNotification: false })
-    }
+  }
+  onNotificationHide = () => {
+    this.setState({ showNotification: false });
+  };
   close = () => {
     this.setState({ showModal: false });
   };
-   open = () => {
-        this.setState({ showModal: true });
+  open = () => {
+    this.setState({ showModal: true });
   };
-   submit = () => {
+  submit = () => {
     let flatGuestList = this.state.additionalGuestList.map((guest) => {
       guest.email = this.state.mainGuest.email;
       guest.rsvp = this.state.mainGuest.rsvp;
@@ -110,21 +116,26 @@ class RSVP extends React.Component {
     flatGuestList.push(this.state.mainGuest);
     const groupID = uuidv4();
     flatGuestList.forEach((e) => {
-        e.groupID = groupID;
-        e.date = new Date().toUTCString();
-        const message = e.rsvp ? acceptedMessage : rejectedMessage;
-        addDoc(collection(db, "guestList"), e).then(() => {
-            Notification.open({
-                title: "You successfully RSVP'ed!",
-                description:  message,
-            });
-            this.setState({ showNotification: true });
+      e.groupID = groupID;
+      e.date = new Date().toUTCString();
+      const message = e.rsvp ? acceptedMessage : rejectedMessage;
+      addDoc(collection(db, "guestList"), e).then(() => {
+        Notification.open({
+          title: "You successfully RSVP'ed!",
+          description: message,
         });
+        this.setState({ showNotification: true });
+      });
     });
   };
-    render() {
-    const { mainGuest, additionalGuestList, additionalGuest, showModal, showNotification } =
-      this.state;
+  render() {
+    const {
+      mainGuest,
+      additionalGuestList,
+      additionalGuest,
+      showModal,
+      showNotification,
+    } = this.state;
     const Body = this.props.isDesktopOrLaptop ? DesktopBody : MobileBody;
     const backgroundClass = this.props.isDesktopOrLaptop
       ? "rsvp-page"
@@ -169,8 +180,8 @@ class RSVP extends React.Component {
                   <option style={{ display: "none" }} selected>
                     Select
                   </option>
-                <option value={true}>Accepts with Joy</option>
-                <option value={false}>Will Celebrate from Afar</option>
+                  <option value={true}>Accepts with Joy</option>
+                  <option value={false}>Will Celebrate from Afar</option>
                 </select>
               </FormGroup>
               <FormGroup controlId="mealChoice">
@@ -223,10 +234,19 @@ class RSVP extends React.Component {
 
               <FormGroup>
                 <ButtonToolbar>
-                                <Button disabled={this.state.mainGuest.rsvp == null} onClick={this.submit} appearance="ghost">
+                  <Button
+                    disabled={this.state.mainGuest.rsvp == null}
+                    onClick={this.submit}
+                    appearance="ghost"
+                    style={buttonStyle}
+                  >
                     RSVP
                   </Button>
-                  <Button onClick={this.open} appearance="ghost">
+                  <Button
+                    onClick={this.open}
+                    appearance="ghost"
+                    style={buttonStyle}
+                  >
                     Add Additional Guest
                   </Button>
                 </ButtonToolbar>
@@ -234,7 +254,12 @@ class RSVP extends React.Component {
             </Form>
           </Body>
         </div>
-        <Modal show={showModal} onHide={this.close} size="xs" style={{ top: "20%" }}>
+        <Modal
+          show={showModal}
+          onHide={this.close}
+          size="xs"
+          style={{ top: "20%" }}
+        >
           <Modal.Header>
             <Modal.Title>Additional Guest</Modal.Title>
           </Modal.Header>
@@ -296,7 +321,7 @@ class RSVP extends React.Component {
               Cancel
             </Button>
           </Modal.Footer>
-            </Modal>
+        </Modal>
       </Wrapper>
     );
   }
