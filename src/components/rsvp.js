@@ -11,6 +11,9 @@ import {
   List,
   Icon,
   Notification,
+  Tooltip,
+  Whisper,
+  Message,
 } from "rsuite";
 import React from "react";
 // Import the functions you need from the SDKs you need
@@ -79,6 +82,15 @@ const buttonStyle = {
   border: "1px solid black",
 };
 
+const tooltip = (
+  <Tooltip>
+    Due to size constraints of the venue, we are limiting RSVPs to only guests
+    that were addressed on the invitations. Thank you.
+  </Tooltip>
+);
+
+let rsvpMessage = false;
+
 class RSVP extends React.Component {
   constructor(props) {
     super(props);
@@ -103,6 +115,8 @@ class RSVP extends React.Component {
   };
   close = () => {
     this.setState({ showModal: false });
+    this.inputElement.close();
+    rsvpMessage = false;
   };
   open = () => {
     this.setState({ showModal: true });
@@ -257,11 +271,42 @@ class RSVP extends React.Component {
         <Modal
           show={showModal}
           onHide={this.close}
+          onEntered={() => {
+            if (this.inputElement) {
+              this.inputElement.open();
+              rsvpMessage = true;
+            }
+          }}
           size="xs"
           style={{ top: "20%" }}
         >
           <Modal.Header>
-            <Modal.Title>Additional Guest</Modal.Title>
+            <Modal.Title style={{ display: "inline", paddingRight: "10px" }}>
+              Additional Guest
+            </Modal.Title>
+            <Whisper
+              placement="right"
+              trigger="none"
+              speaker={tooltip}
+              ref={(Whisper) => {
+                this.inputElement = Whisper;
+              }}
+            >
+              <Icon
+                icon="info"
+                onClick={() => {
+                  if (this.inputElement) {
+                    if (rsvpMessage) {
+                      this.inputElement.close();
+                      rsvpMessage = false;
+                    } else {
+                      this.inputElement.open();
+                      rsvpMessage = true;
+                    }
+                  }
+                }}
+              />
+            </Whisper>
           </Modal.Header>
           <Modal.Body>
             <Form
@@ -299,6 +344,11 @@ class RSVP extends React.Component {
                 </select>
               </FormGroup>
             </Form>
+            {/* <Message
+              type="warning"
+              description="Due to size constraints of the venue, we are limiting RSVPs to only guests
+    that were addressed on the invitations. Thank you."
+            /> */}
           </Modal.Body>
           <Modal.Footer>
             <Button
