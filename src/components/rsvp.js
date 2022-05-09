@@ -14,6 +14,7 @@ import {
   Tooltip,
   Whisper,
   Message,
+  Input,
 } from "rsuite";
 import React from "react";
 // Import the functions you need from the SDKs you need
@@ -100,6 +101,7 @@ class RSVP extends React.Component {
         email: "",
         rsvp: null,
         mealChoice: "",
+        comments: "",
       },
       additionalGuestList: [],
       additionalGuest: {
@@ -221,7 +223,18 @@ class RSVP extends React.Component {
                   <option value={BEEF}>Beef Tenderloin</option>
                 </select>
               </FormGroup>
-
+              <FormGroup controlId="comments">
+                <ControlLabel>Additional Comments</ControlLabel>
+                <Input
+                  componentClass="textarea"
+                  rows={3}
+                  placeholder="E.g., special accommodations, dietary restrictions, etc."
+                  onChange={(value) => {
+                    mainGuest.comments = value;
+                    this.setState({ mainGuest });
+                  }}
+                />
+              </FormGroup>
               {additionalGuestList.length === 0 ? null : (
                 <div style={{ marginBottom: "24px" }}>
                   <List bordered hover>
