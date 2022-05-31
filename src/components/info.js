@@ -82,6 +82,24 @@ function Info(props) {
       </Wrapper>
       <br />
       <br />
+      <h2 className="section-header info-subheader">Meet and Greet</h2>
+      <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+        Come enjoy some food and drinks!
+      </p>
+      <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+        September 2nd, 2022
+      </p>
+      <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+        5:30 pm - 8:30 pm
+      </p>
+      <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+        10108 Stoneglen Tr
+      </p>
+      <p className="ourstory-andinfo-detail" style={{ color: "white" }}>
+        Lone Tree, Colorado 80124
+      </p>
+      <br />
+      <br />
       <h2 className="section-header info-subheader">Accommodations</h2>
       <div>
         <div className="info-detail">
